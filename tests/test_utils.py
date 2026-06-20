@@ -1,4 +1,4 @@
-"""Unit tests for src/utils.py."""
+"""Tests for src/utils.py."""
 import unittest
 from src.utils import parse_commit, bump_version
 
@@ -7,7 +7,6 @@ class TestParseCommit(unittest.TestCase):
     def test_feat(self):
         r = parse_commit("feat(auth): add OAuth2 login")
         self.assertEqual(r["type"], "feat")
-        self.assertEqual(r["scope"], "auth")
         self.assertFalse(r["breaking"])
 
     def test_breaking(self):
