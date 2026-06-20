@@ -1,0 +1,33 @@
+# CODEOWNERS — automatic PR reviewer assignment
+# ─────────────────────────────────────────────────────────────────────────────
+# Format : <pattern>  <owner> [<owner> ...]
+# Rules are evaluated top-to-bottom; the LAST matching rule wins.
+# Docs   : https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Default: catch-all (every file not matched below) ────────────────────────
+*                               @LIN4CRE
+
+# ── Repository meta & documentation ──────────────────────────────────────────
+/*.md                           @LIN4CRE
+/LICENSE                        @LIN4CRE
+/VERSION                        @LIN4CRE
+/requirements.txt               @LIN4CRE
+/.gitignore                     @LIN4CRE
+
+# ── Source code ───────────────────────────────────────────────────────────────
+# Upgrade to @LIN4CRE/backend once that team is created in the org
+/src/                           @LIN4CRE
+
+# ── Tests ────────────────────────────────────────────────────────────────────
+# Upgrade to @LIN4CRE/qa once that team is created in the org
+/tests/                         @LIN4CRE
+
+# ── Scripts (quality, tooling) ───────────────────────────────────────────────
+/scripts/                       @LIN4CRE
+
+# ── CI/CD & repository configuration (highest sensitivity) ───────────────────
+# Upgrade to @LIN4CRE/devops once that team is created in the org
+/.github/                       @LIN4CRE
+/.github/workflows/             @LIN4CRE
+/.github/CODEOWNERS             @LIN4CRE
