@@ -2,7 +2,7 @@
 name: Bug Report
 about: Report a bug or unexpected behaviour
 title: "[BUG] "
-labels: ["bug", "triage"]
+labels: ["bug","triage"]
 assignees: ["LIN4CRE"]
 ---
 
@@ -11,13 +11,7 @@ assignees: ["LIN4CRE"]
 ## Steps to Reproduce
 1.
 2.
-3.
 
 ## Expected Behaviour
 
 ## Actual Behaviour
-
-## Environment
-- OS:
-- Python version:
-- Branch / commit:
