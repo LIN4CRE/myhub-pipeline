@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   label:
-    name: Apply labels
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v5
