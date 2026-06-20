@@ -6,13 +6,41 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  REPO_OWNER: ${{ vars.REPO_OWNER }}
+  REPO_NAME:  ${{ vars.REPO_NAME }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      PIPELINE_TOKEN: ${{ secrets.PIPELINE_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -r requirements.txt
-      - run: python -m pytest tests/ -v
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m pytest tests/ -v
+
+      - name: Code quality check
+        run: |
+          python - <<'EOF'
+          import os, re, sys
+          issues = []
+          for root, _, files in os.walk("src"):
+              for f in files:
+                  if not f.endswith(".py"):
+                      continue
+                  src = open(os.path.join(root, f)).read()
+                  if re.search(r"(password|secret|token)\s*=\s*['\"][^'\"]{8,}", src, re.I):
+                      issues.append(f"HIGH: possible hardcoded secret in {os.path.join(root,f)}")
+          if issues:
+              print("\n".join(issues)); sys.exit(1)
+          print("Code quality: no hardcoded secrets found.")
+          EOF
