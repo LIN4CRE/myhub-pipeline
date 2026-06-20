@@ -9,7 +9,7 @@ pytest tests/
 ```
 
 ## Stages
-1. GitHub Integration
+1. GitHub Integration & Config
 2. Code Quality & Security
 3. Benchmark Harness
 4. CI / Testing Automation
