@@ -8,3 +8,12 @@ build/
 *.egg-info/
 .pytest_cache/
 .DS_Store
+.coverage
+htmlcov/
+*.egg
+
+# Pipeline runtime artifacts (kept in repo for dashboard; excluded from local)
+# Uncomment below to exclude JSON artifacts from local working tree:
+# pipeline_history.json
+# webhook_events.json
+# security_report.json
