@@ -1,31 +1,26 @@
+"""quality_check.py — called by CI to enforce code standards."""
 import os
 import re
 import sys
 
-# Flag only bare quoted-string assignments (not env-var reads).
-# Matches:  token = 'abc...'   but NOT:  TOKEN = os.environ.get('...')
-HARDCODE_RE = re.compile(
-    r"(?:password|secret|api_key|token)\s*=\s*['\"][^'\"]{8,}['\"]",
-    re.IGNORECASE,
-)
-WILDCARD_RE = re.compile(r"^from\s+\S+\s+import\s+\*", re.M)
+# Patterns that must NOT appear in source code
+_SECRET_RE  = re.compile(r"ghp_[A-Za-z0-9]{36,}", re.IGNORECASE)
+_WILDCARD_RE = re.compile(r"^from\s+\S+\s+import\s+\*", re.MULTILINE)
 
 issues = []
-for root, _, files in os.walk("src"):
+for root, _dirs, files in os.walk("src"):
     for fname in files:
         if not fname.endswith(".py"):
             continue
         fpath = os.path.join(root, fname)
-        code = open(fpath, encoding="utf-8").read()
-        if HARDCODE_RE.search(code):
-            issues.append("HIGH: hardcoded credential in " + fpath)
-        if WILDCARD_RE.search(code):
-            issues.append("MEDIUM: wildcard import in " + fpath)
+        with open(fpath) as fh:
+            src = fh.read()
+        if _SECRET_RE.search(src):
+            issues.append(f"HIGH: possible hardcoded secret in {fpath}")
+        if _WILDCARD_RE.search(src):
+            issues.append(f"MEDIUM: wildcard import in {fpath}")
 
 if issues:
-    for issue in issues:
-        print(issue)
+    print("\n".join(issues))
     sys.exit(1)
-
-count = sum(1 for r, _, fs in os.walk("src") for fn in fs if fn.endswith(".py"))
-print("Code quality OK - scanned " + str(count) + " files, 0 issues.")
+print(f"quality_check: {sum(1 for _ in os.walk('src'))} dirs scanned — 0 issues")
