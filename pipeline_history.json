@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": "2026-06-20T19:03:11Z",
+    "health_pct": 100,
+    "all_systems_ok": true,
+    "ci_status": "success",
+    "ci_duration_s": 19,
+    "ci_url": "https://github.com/LIN4CRE/myhub-pipeline/actions/runs/27880320799",
+    "tests_ran": 9,
+    "tests_passed": 9,
+    "tests_failed": 0,
+    "pass_rate_pct": 100.0,
+    "elapsed_monitor_s": 3.925,
+    "checks_summary": {
+      "ci": true,
+      "branch_protection": true,
+      "codeowners": true,
+      "pr_template": true,
+      "open_prs_failing": true,
+      "required_files": true,
+      "actions_secrets": true
+    }
+  }
+]
