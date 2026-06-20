@@ -1,0 +1,23 @@
+enhancement:
+  - changed-files:
+    - any-glob-to-any-file: ["src/**"]
+
+testing:
+  - changed-files:
+    - any-glob-to-any-file: ["tests/**"]
+
+ci:
+  - changed-files:
+    - any-glob-to-any-file: [".github/**", "scripts/**"]
+
+documentation:
+  - changed-files:
+    - any-glob-to-any-file: ["*.md", "docs/**"]
+
+dependencies:
+  - changed-files:
+    - any-glob-to-any-file: ["requirements*.txt", "setup.py", "pyproject.toml"]
+
+release:
+  - changed-files:
+    - any-glob-to-any-file: ["VERSION", "CHANGELOG.md"]
