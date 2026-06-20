@@ -6,5 +6,13 @@
     "ref": "refs/heads/main",
     "run_id": "0",
     "repo": "LIN4CRE/myhub-pipeline"
+  },
+  {
+    "timestamp": "2026-06-20T20:16:53.150192Z",
+    "event": "pull_request",
+    "actor": "dependabot[bot]",
+    "ref": "refs/pull/3/merge",
+    "run_id": "27882686579",
+    "repo": "LIN4CRE/myhub-pipeline"
   }
 ]
