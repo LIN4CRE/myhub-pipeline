@@ -3,31 +3,75 @@ name: CI
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
-env:
-  REPO_OWNER: ${{ vars.REPO_OWNER }}
-  REPO_NAME:  ${{ vars.REPO_NAME }}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   test:
+    name: Tests (pytest)
     runs-on: ubuntu-latest
     env:
       PIPELINE_TOKEN: ${{ secrets.PIPELINE_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
+          cache: pip
       - name: Install dependencies
-        run: pip install -r requirements.txt
-
+        run: pip install -r requirements.txt -r requirements-dev.txt
       - name: Run tests
-        run: python -m pytest tests/ -v
-
+        run: python -m pytest tests/ -v --tb=short
       - name: Code quality check
         run: python scripts/quality_check.py
+
+  lint:
+    name: Lint (flake8)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install flake8
+        run: pip install flake8
+      - name: Lint
+        run: flake8 src/ tests/ scripts/ --config=.flake8
+
+  security:
+    name: Security (bandit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install bandit
+        run: pip install bandit
+      - name: Security scan
+        run: bandit -r src/ -ll -ii
+
+  build:
+    name: Build validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Validate imports
+        run: python -c "import src.pipeline; import src.utils; print('Build OK')"
