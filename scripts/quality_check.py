@@ -3,7 +3,7 @@ import os
 import re
 import sys
 
-_SECRET_RE   = re.compile(r"ghp_[A-Za-z0-9]{36,}", re.IGNORECASE)
+_SECRET_RE = re.compile(r"ghp_[A-Za-z0-9]{36,}", re.IGNORECASE)
 _WILDCARD_RE = re.compile(r"^from\s+\S+\s+import\s+\*", re.MULTILINE)
 
 issues = []

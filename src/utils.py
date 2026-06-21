@@ -7,6 +7,7 @@ COMMIT_RE = re.compile(
     re.IGNORECASE,
 )
 
+
 def parse_commit(msg: str) -> dict:
     """Parse a Conventional Commit message into a structured dict."""
     m = COMMIT_RE.match(msg)
@@ -18,6 +19,7 @@ def parse_commit(msg: str) -> dict:
             "desc":     m.group("desc").strip(),
         }
     return {"type": "other", "scope": "", "breaking": False, "desc": msg}
+
 
 def bump_version(version: str, breaking: bool, has_feat: bool) -> str:
     """Bump a semver string given the nature of changes."""
