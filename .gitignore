@@ -12,3 +12,8 @@ build/
 htmlcov/
 # Pipeline JSON artifacts committed intentionally:
 # pipeline_history.json, webhook_events.json, security_report.json
+
+# Demo video - too large for git, upload to YouTube instead
+*.mp4
+*.webm
+*.mov

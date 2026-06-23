@@ -1,13 +1,13 @@
 # MyHub Dev Pipeline 🚀
 
-[![Record Demo](https://img.shields.io/badge/▶%20Demo%20Video-coming%20soon-555555?style=for-the-badge&logo=youtube)](https://github.com/LIN4CRE/myhub-pipeline/blob/main/docs/DEMO_SCRIPT.md)
+[![▶ Watch Demo](https://img.shields.io/badge/▶%20Watch%20Demo-6c63ff?style=for-the-badge&logo=youtube)](https://www.youtube.com/@DavidLinacre)
 [![CI](https://github.com/LIN4CRE/myhub-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/LIN4CRE/myhub-pipeline/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-v1.2.0-6c63ff?style=flat)](https://github.com/LIN4CRE/myhub-pipeline/releases)
 [![Health](https://img.shields.io/badge/health-100%25-17b26a?style=flat)](https://github.com/LIN4CRE/myhub-pipeline)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
 [![Deploy Freq](https://img.shields.io/badge/Deploy__Freq-0.23%2Fwk-ffd400?style=flat&colorA=1D1D20)](https://github.com/LIN4CRE/myhub-pipeline/blob/main/ARCHITECTURE.md)
 [![Failure Risk](https://img.shields.io/badge/Failure__Risk-0%25-8DE5A1?style=flat&colorA=1D1D20)](https://github.com/LIN4CRE/myhub-pipeline/blob/main/pipeline_history.json)
-[![YouTube](https://img.shields.io/badge/YouTube-@Minibooks1-ff0000?style=flat&logo=youtube)](https://www.youtube.com/@Minibooks1)
+[![YouTube](https://img.shields.io/badge/YouTube-@DavidLinacre-ff0000?style=flat&logo=youtube)](https://www.youtube.com/@DavidLinacre)
 
 > **Fully automated SDLC pipeline** — CI/CD, code quality, security scanning, AI auto-fix,
 > DORA metrics, anomaly detection, predictive failure, and a live portfolio dashboard.
@@ -17,13 +17,13 @@
 
 ## 🎬 Demo Video
 
-> **Recording in progress** — follow the [9-scene script](docs/DEMO_SCRIPT.md) with Loom or OBS.
-> Once recorded, paste the URL here and re-run this block to embed automatically.
+> Watch the full pipeline walkthrough — 44 blocks, zero manual steps, fully automated.
 
 | Step | Link |
 |------|------|
+| 🎥 Watch on YouTube | [youtube.com/@DavidLinacre](https://www.youtube.com/@DavidLinacre) |
 | 📋 Demo Script (9 scenes, 60s) | [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md) |
-| 🎥 YouTube Channel | [@Minibooks1](https://www.youtube.com/@Minibooks1) |
+| 🎥 YouTube Channel | [@DavidLinacre](https://www.youtube.com/@DavidLinacre) |
 | 📐 Architecture Diagram | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | 📦 Golden Release v1.2.0 | [Releases](https://github.com/LIN4CRE/myhub-pipeline/releases) |
 
@@ -106,7 +106,7 @@ gh workflow run ci.yml --repo LIN4CRE/myhub-pipeline
 | Resource | URL |
 |----------|-----|
 | 📦 Repo | https://github.com/LIN4CRE/myhub-pipeline |
-| 🎥 YouTube | https://www.youtube.com/@Minibooks1 |
+| 🎥 YouTube | https://www.youtube.com/@DavidLinacre |
 | 📋 Docs | https://github.com/LIN4CRE/myhub-pipeline/tree/main/docs |
 | 🏗 Architecture | https://github.com/LIN4CRE/myhub-pipeline/blob/main/ARCHITECTURE.md |
 | 📝 CHANGELOG | https://github.com/LIN4CRE/myhub-pipeline/blob/main/CHANGELOG.md |
