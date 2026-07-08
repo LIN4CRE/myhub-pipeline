@@ -10,6 +10,9 @@ updates:
     labels: ["dependencies","automated"]
     commit-message:
       prefix: "chore(deps)"
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -19,3 +22,6 @@ updates:
     rebase-strategy: "rebase"
     reviewers: ["LIN4CRE"]
     labels: ["ci","automated"]
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
