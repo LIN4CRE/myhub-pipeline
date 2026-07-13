@@ -1,3 +1,5 @@
+<p align="center"><img src="https://raw.githubusercontent.com/LIN4CRE/myhub-pipeline/main/.github/banner.png" alt="myhub-pipeline banner" width="100%"></p>
+
 # MyHub Dev Pipeline 🚀
 
 [![▶ Watch Demo](https://img.shields.io/badge/▶%20Watch%20Demo-6c63ff?style=for-the-badge&logo=youtube)](https://www.youtube.com/@DavidLinacre)
